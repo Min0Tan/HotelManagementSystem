@@ -31,7 +31,7 @@ public class GuestManager {
 			System.out.print("Enter the Room Number to delete: ");
 			int guestroomnum = input.nextInt();
 			if (guest == null) {
-				System.out.println("The room has not founded");
+				System.out.println("From Now, The room has not founded");
 				return;
 		}
 		
