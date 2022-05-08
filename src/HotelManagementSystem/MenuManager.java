@@ -10,13 +10,14 @@ public class MenuManager {
 			
 			int num = 0;
 			
-			while (num != 5) {
+			while (num != 6) {
 				System.out.println("1. Add guest");
-				System.out.println("2. Delete Room");
-				System.out.println("3. Edit Room");
-				System.out.println("4. View Room");
-				System.out.println("5. Exit");
-				System.out.println("Select one number 1~5");
+				System.out.println("2. Delete Guest");
+				System.out.println("3. Edit Guest");
+				System.out.println("4. View Guest");
+				System.out.println("5. Show a menu");
+				System.out.println("6. Exit");
+				System.out.println("Select one number 1-6: ");
 				num = input.nextInt();
 				
 				switch (num) {
@@ -26,15 +27,15 @@ public class MenuManager {
 					break;
 					
 				case 2:
-					guestmanager.deleteRoom();
+					guestmanager.deleteGuest();
 					break;
 					
 				case 3:
-					guestmanager.editRoom();
+					guestmanager.editGuest();
 					break;
 					
 				case 4:
-					guestmanager.viewGuest();
+					guestmanager.viewGuests();
 					break;
 				}
 			}
