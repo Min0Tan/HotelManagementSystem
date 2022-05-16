@@ -2,87 +2,64 @@ package Guest;
 
 import java.util.Scanner;
 
-public class EconomicGuest extends Guest implements GuestInput {
+import exception.PhoneFormatException;
+
+public class EconomicGuest extends TeenageGuest {
 	
-	protected String homephone;
-	protected int night;
+	protected String mobilePhone;
+	protected String homePhone;
 	
 	public EconomicGuest(GuestKind kind) {
 		super(kind);
 	}
 	
+	
 	public void getUserInput(Scanner input) {
-		System.out.print("Guest's Room Number: ");
-		int roomnum = input.nextInt();
-		this.setRoomnum(roomnum);
-		
-		System.out.print("Guest Name: ");
-		String name = input.next();
-		this.setName(name);
-		
+		setGuestRoomnum(input);
+		setGuestName(input);
+		setGuestPhonewithYN(input);
+		setHomePhonewithYN(input);
+		setGuestHeadcount(input);
+	}
+	
+	public void setHomePhonewithYN(Scanner input) {
 		char answer = 'X';
 		while (answer != 'Y' && answer != 'y' && answer != 'N' && answer != 'n') {
-			
-			System.out.println("Do you have a Mobilephone number? (Y/N)");
-			answer = input.next().charAt(0);
-			if (answer == 'Y' || answer == 'y') {
-				System.out.print("Guest's Phone Number: ");
-				String phone = input.next();
-				this.setPhone(phone);
-				break;
-			}
-			else if (answer == 'N' || answer == 'n') {
-				this.setPhone("");
-				break;
-			}
-			else {
-				
-			}
-		}
-		
-		answer = 'X';
-		while (answer != 'Y' && answer != 'y' && answer != 'N' && answer != 'n') {
-			
 			System.out.println("Do you have a Home phone number? (Y/N)");
 			answer = input.next().charAt(0);
-			if (answer == 'Y' || answer == 'y') {
-				System.out.print("Guest's Home phone number: ");
-				String phone = input.next();
-				this.setPhone(phone);
-				break;
+			try {
+				if (answer == 'Y' || answer == 'y') {
+					setGuestPhone(input);
+					break;
+				}
+				else if (answer == 'N' || answer == 'n') {
+					this.setPhone("");
+					break;
+				}
+				else {
+					
+				}
 			}
-			else if (answer == 'N' || answer == 'n') {
-				this.setPhone("");
-				break;
-			}
-			else {
-				
-			}
+			catch(PhoneFormatException e) {
+				System.out.println("Incorrect Phone Format, put the phone number that contains 010");	
+				}
 		}
 		
-		System.out.print("Headcount: ");
-		int headcount = input.nextInt();
-		this.setHeadcount(headcount);
 	}
 	
 	public void printInfo() {
-		String skind = "None";
-		switch(this.kind) {
-		case Master:
-			skind = "Mas.";
-			break;
-		case Advanced:
-			skind = "Adv.";
-			break;
-		case Middle:
-			skind = "Mid.";
-			break;
-		case Economic:
-			skind = "Eco.";
-			break;
-		default:
-		}
+		String skind = getKindString();
+
 		System.out.println("Kind: "+skind+"Name: "+name+"Room Number: "+roomnum+"Phone Number: "+phone+"Headcount: "+headcount);
 	}
+
+
+	@Override
+	public void setGuestPhone(Scanner input) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
 
 }
