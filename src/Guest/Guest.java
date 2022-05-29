@@ -1,11 +1,16 @@
 package Guest;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import exception.PhoneFormatException;
 
-public abstract class Guest implements GuestInput {
-	    protected GuestKind kind = GuestKind.Master;
+public abstract class Guest implements GuestInput, Serializable {
+	    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3271095467179597493L;
+		protected GuestKind kind = GuestKind.Master;
 	    protected String name;
 	    protected int roomnum;
 	    protected String phone;

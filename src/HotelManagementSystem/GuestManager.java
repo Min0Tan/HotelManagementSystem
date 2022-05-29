@@ -1,5 +1,6 @@
 package HotelManagementSystem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,9 +11,13 @@ import Guest.EconomicGuest;
 import Guest.GuestInput;
 import Guest.GuestKind;
 
-public class GuestManager {
+public class GuestManager implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9057629442090171930L;
 	ArrayList<GuestInput> guests = new ArrayList<GuestInput>();
-	Scanner input;
+	transient Scanner input;
 	GuestManager(Scanner input) {
 		this.input = input;
 	}
