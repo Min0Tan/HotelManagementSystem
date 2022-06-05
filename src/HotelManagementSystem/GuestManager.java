@@ -8,6 +8,7 @@ import java.util.Scanner;
 import Guest.MasterGuest;
 import Guest.AdvancedGuest;
 import Guest.EconomicGuest;
+import Guest.Guest;
 import Guest.GuestInput;
 import Guest.GuestKind;
 
@@ -16,9 +17,10 @@ public class GuestManager implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -9057629442090171930L;
+	
 	ArrayList<GuestInput> guests = new ArrayList<GuestInput>();
 	transient Scanner input;
-	GuestManager(Scanner input) {
+	public GuestManager(Scanner input) {
 		this.input = input;
 	}
 	
@@ -140,6 +142,14 @@ public class GuestManager implements Serializable {
 		}
 	}
 	
+	public int size() {
+		return guests.size();
+	}
+	
+	public GuestInput get(int index) {
+		return (Guest) guests.get(index);
+	}
+	
 
 	
 	public void showEditMenu() {
@@ -150,6 +160,11 @@ public class GuestManager implements Serializable {
 	    System.out.println(" 4. Edit Headcount");
 	    System.out.println(" 5. Exit");
 	    System.out.println("Select A Number between 1 to 5");
+		
+	}
+
+	public void setScanner(Scanner input2) {
+		// TODO Auto-generated method stub
 		
 	}
 

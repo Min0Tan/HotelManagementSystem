@@ -10,9 +10,15 @@ public interface GuestInput {
 	
 	public void setRoomnum(int roomnum);
 	
+	public String getName();
+	
 	public void setName(String name);
 	
+	public String getPhone();
+	
 	public void setPhone(String phone) throws PhoneFormatException;
+	
+	public int getHeadcount();
 	
 	public void setHeadcount(int headcount);
 	

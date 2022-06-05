@@ -15,6 +15,7 @@ public class AdvancedGuest extends TeenageGuest {
 		setGuestHeadcount(input);
 	}
 
+	
 	@Override
 	public void setGuestPhone(Scanner input) {
 		// TODO Auto-generated method stub

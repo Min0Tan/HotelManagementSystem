@@ -2,7 +2,9 @@ package Guest;
 
 import java.util.Scanner;
 
-public class MasterGuest extends Guest {
+import exception.PhoneFormatException;
+
+public class MasterGuest extends TeenageGuest {
 	
 	public MasterGuest(GuestKind kind) {
 		super(kind);
@@ -11,7 +13,7 @@ public class MasterGuest extends Guest {
 	public void getUserInput(Scanner input) {
 		setGuestRoomnum(input);
 		setGuestName(input);
-		setGuestPhone(input);
+		setGuestPhonewithYN(input);
 		setGuestHeadcount(input);
 	}
 	
@@ -21,7 +23,7 @@ public class MasterGuest extends Guest {
 	}
 
 	@Override
-	public void setGuestPhone(Scanner input) {
+	public void setGuestPhone(Scanner input){
 		// TODO Auto-generated method stub
 		
 	}

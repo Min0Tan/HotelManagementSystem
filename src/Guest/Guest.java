@@ -66,7 +66,7 @@ public abstract class Guest implements GuestInput, Serializable {
 	    }
 	    
 	    public void setPhone(String phone) throws PhoneFormatException {
-	    	if (!phone.contains("010") || phone.equals("")) {
+	    	if (!phone.contains("010") && !phone.equals("")) {
 	    		throw new PhoneFormatException();
 	    	}
 	    	
@@ -100,7 +100,7 @@ public abstract class Guest implements GuestInput, Serializable {
 		
 		public void setPhone(Scanner input) {
 			String phone = "";
-			while (phone.contains("010")) {
+			while (!phone.contains("010")) {
 				System.out.println("Guest's Phone Number: ");
 				phone = input.next();
 				try {
